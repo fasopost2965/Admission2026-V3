@@ -1,0 +1,516 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-blue: #003C71;
+    --primary-gold: #FFD700;
+    --secondary-blue: #0056a3;
+    --light-blue: #e6f2ff;
+    --white: #ffffff;
+    --gray-light: #f8f9fa;
+    --gray: #6c757d;
+    --gray-dark: #343a40;
+    --success: #28a745;
+    --danger: #dc3545;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.15);
+    --radius: 12px;
+}
+
+body {
+    font-family: 'Poppins', 'Tajawal', sans-serif;
+    background-color: var(--gray-light);
+    color: var(--gray-dark);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* Header */
+.header {
+    background: var(--white);
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-blue), var(--primary-gold), var(--primary-blue));
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--primary-blue);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--white);
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+    font-family: 'Poppins', sans-serif;
+}
+
+.logo-subtitle {
+    font-size: 0.875rem;
+    color: var(--gray);
+    font-family: 'Tajawal', sans-serif;
+}
+
+.operator-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: var(--light-blue);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+}
+
+.operator-avatar {
+    width: 36px;
+    height: 36px;
+    background: var(--primary-gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    color: var(--primary-blue);
+}
+
+/* Progress Section */
+.progress-wrapper {
+    background: var(--white);
+    padding: 2rem 0;
+    margin-bottom: 2rem;
+}
+
+.progress-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.progress-bar {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.progress-line {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #e0e0e0;
+    z-index: 1;
+}
+
+.progress-line-active {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: var(--primary-gold);
+    z-index: 2;
+    transition: width 0.5s ease;
+}
+
+.progress-step {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+.step-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--white);
+    border: 2px solid #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    color: var(--gray);
+    transition: all 0.3s ease;
+    margin-bottom: 0.5rem;
+}
+
+.step-circle.active {
+    background: var(--primary-blue);
+    border-color: var(--primary-blue);
+    color: var(--white);
+    transform: scale(1.1);
+}
+
+.step-circle.completed {
+    background: var(--success);
+    border-color: var(--success);
+    color: var(--white);
+}
+
+.step-label {
+    font-size: 0.75rem;
+    color: var(--gray);
+    text-align: center;
+    max-width: 100px;
+}
+
+.step-label-ar {
+    font-family: 'Tajawal', sans-serif;
+    font-size: 0.7rem;
+    opacity: 0.8;
+}
+
+.progress-step.active .step-label {
+    color: var(--primary-blue);
+    font-weight: 600;
+}
+
+.progress-step.completed .step-label {
+    color: var(--success);
+    font-weight: 600;
+}
+
+/* Main Content */
+.main-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 2rem 4rem;
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.page-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+    margin-bottom: 0.5rem;
+}
+
+.page-subtitle {
+    font-size: 1.25rem;
+    color: var(--gray);
+    font-family: 'Tajawal', sans-serif;
+}
+
+/* Cards */
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.inscription-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 2.5rem;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: 3px solid transparent;
+}
+
+.inscription-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, var(--primary-blue), var(--primary-gold));
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
+}
+
+.inscription-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.inscription-card:hover::before {
+    transform: translateY(0);
+}
+
+.card-icon {
+    width: 80px;
+    height: 80px;
+    background: var(--light-blue);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 2.5rem;
+    transition: all 0.3s ease;
+}
+
+.inscription-card:hover .card-icon {
+    background: var(--primary-gold);
+    transform: scale(1.1);
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-blue);
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.card-subtitle {
+    font-size: 1.1rem;
+    color: var(--gray);
+    text-align: center;
+    font-family: 'Tajawal', sans-serif;
+    margin-bottom: 1rem;
+}
+
+.card-description {
+    text-align: center;
+    color: var(--gray);
+    line-height: 1.8;
+}
+
+.card-features {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e0e0e0;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--gray);
+    font-size: 0.9rem;
+}
+
+.feature-icon {
+    color: var(--primary-gold);
+}
+
+/* Selected State */
+.inscription-card.selected {
+    border-color: var(--primary-blue);
+    background: linear-gradient(to bottom right, #f0f7ff, #fff);
+}
+
+.inscription-card.selected::after {
+    content: '✓';
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 35px;
+    height: 35px;
+    background: var(--success);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    animation: scaleIn 0.3s ease;
+}
+
+/* Hidden inputs for form */
+.d-none {
+    display: none !important;
+}
+
+/* Action Buttons */
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 3rem;
+}
+
+.btn {
+    padding: 0.875rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background: var(--primary-blue);
+    color: var(--white);
+}
+
+.btn-primary:hover:not(:disabled) {
+    background: var(--secondary-blue);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+.btn-secondary {
+    background: var(--white);
+    color: var(--primary-blue);
+    border: 2px solid var(--primary-blue);
+}
+
+.btn-secondary:hover {
+    background: var(--light-blue);
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* School Year Badge */
+.school-year {
+    background: var(--primary-gold);
+    color: var(--primary-blue);
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    display: inline-block;
+    margin: 0 auto 2rem;
+    animation: pulse 2s infinite;
+}
+
+/* Alert Messages */
+.alert {
+    padding: 1rem;
+    border-radius: var(--radius);
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.inscription-card {
+    animation: fadeIn 0.5s ease forwards;
+    opacity: 0;
+}
+
+.inscription-card:nth-child(1) { animation-delay: 0.1s; }
+.inscription-card:nth-child(2) { animation-delay: 0.2s; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .progress-step {
+        font-size: 0.75rem;
+    }
+
+    .step-label {
+        display: none;
+    }
+
+    .cards-container {
+        grid-template-columns: 1fr;
+    }
+
+    .page-title {
+        font-size: 1.5rem;
+    }
+
+    .actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+} 
