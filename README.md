@@ -245,4 +245,4 @@ Pour toute question ou support :
 
 ---
 
-**Développé avec ❤️ pour l'École La Victoire** 
+**Développé avec ❤️ pour l'École La Victoire**
