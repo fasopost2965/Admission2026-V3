@@ -168,7 +168,6 @@
 
         .progress-step {
             position: relative;
-            z-index: 3;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -220,6 +219,32 @@
         .progress-step.completed .step-label {
             color: var(--primary-blue);
             font-weight: 600;
+        }
+
+        .step-link {
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            padding: 8px;
+            margin: -8px;
+        }
+
+        .step-link:hover {
+            background: rgba(0, 60, 113, 0.05);
+            transform: translateY(-2px);
+        }
+
+        .step-link:hover .step-circle {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(0, 60, 113, 0.2);
+        }
+
+        .step-link:hover .step-label {
+            color: var(--primary-blue);
         }
 
         /* Main Content */
@@ -615,27 +640,33 @@
                 <div class="progress-line-active"></div>
                 
                 <div class="progress-step completed">
-                    <div class="step-circle completed">✓</div>
-                    <div class="step-label">
-                        Type d'inscription
-                        <div class="step-label-ar">نوع التسجيل</div>
-                    </div>
+                    <a href="{{ route('inscription.step1') }}" class="step-link" data-step="1">
+                        <div class="step-circle completed">✓</div>
+                        <div class="step-label">
+                            Type d'inscription
+                            <div class="step-label-ar">نوع التسجيل</div>
+                        </div>
+                    </a>
                 </div>
                 
                 <div class="progress-step completed">
-                    <div class="step-circle completed">✓</div>
-                    <div class="step-label">
-                        Informations élève
-                        <div class="step-label-ar">معلومات التلميذ</div>
-                    </div>
+                    <a href="{{ route('inscription.step2') }}" class="step-link" data-step="2">
+                        <div class="step-circle completed">✓</div>
+                        <div class="step-label">
+                            Informations élève
+                            <div class="step-label-ar">معلومات التلميذ</div>
+                        </div>
+                    </a>
                 </div>
                 
                 <div class="progress-step completed">
-                    <div class="step-circle completed">✓</div>
-                    <div class="step-label">
-                        Informations parents
-                        <div class="step-label-ar">معلومات الوالدين</div>
-                    </div>
+                    <a href="{{ route('inscription.step3') }}" class="step-link" data-step="3">
+                        <div class="step-circle completed">✓</div>
+                        <div class="step-label">
+                            Informations parents
+                            <div class="step-label-ar">معلومات الوالدين</div>
+                        </div>
+                    </a>
                 </div>
                 
                 <div class="progress-step active">
@@ -647,27 +678,33 @@
                 </div>
                 
                 <div class="progress-step">
-                    <div class="step-circle">5</div>
-                    <div class="step-label">
-                        Fournitures
-                        <div class="step-label-ar">اللوازم المدرسية</div>
-                    </div>
+                    <a href="{{ route('inscription.step5') }}" class="step-link" data-step="5">
+                        <div class="step-circle">5</div>
+                        <div class="step-label">
+                            Fournitures
+                            <div class="step-label-ar">اللوازم المدرسية</div>
+                        </div>
+                    </a>
                 </div>
                 
                 <div class="progress-step">
-                    <div class="step-circle">6</div>
-                    <div class="step-label">
-                        Récapitulatif
-                        <div class="step-label-ar">ملخص</div>
-                    </div>
+                    <a href="{{ route('inscription.step6') }}" class="step-link" data-step="6">
+                        <div class="step-circle">6</div>
+                        <div class="step-label">
+                            Récapitulatif
+                            <div class="step-label-ar">ملخص</div>
+                        </div>
+                    </a>
                 </div>
                 
                 <div class="progress-step">
-                    <div class="step-circle">7</div>
-                    <div class="step-label">
-                        Validation
-                        <div class="step-label-ar">التأكيد</div>
-                    </div>
+                    <a href="{{ route('inscription.step7', $inscription->id ?? '123') }}" class="step-link" data-step="7">
+                        <div class="step-circle">7</div>
+                        <div class="step-label">
+                            Validation
+                            <div class="step-label-ar">التأكيد</div>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>

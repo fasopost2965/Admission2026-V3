@@ -15,45 +15,57 @@
     <div class="progress-section">
         <div class="stepper">
             <div class="step completed">
-                <div class="step-circle">
-                    <i class="fas fa-check"></i>
-                </div>
-                <span class="step-label">Type</span>
+                <a href="{{ route('inscription.step1') }}" class="step-link" data-step="1">
+                    <div class="step-circle">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <span class="step-label">Type</span>
+                </a>
             </div>
             <div class="step-connector completed"></div>
             <div class="step completed">
-                <div class="step-circle">
-                    <i class="fas fa-check"></i>
-                </div>
-                <span class="step-label">Élève</span>
+                <a href="{{ route('inscription.step2') }}" class="step-link" data-step="2">
+                    <div class="step-circle">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <span class="step-label">Élève</span>
+                </a>
             </div>
             <div class="step-connector completed"></div>
             <div class="step completed">
-                <div class="step-circle">
-                    <i class="fas fa-check"></i>
-                </div>
-                <span class="step-label">Parents</span>
+                <a href="{{ route('inscription.step3') }}" class="step-link" data-step="3">
+                    <div class="step-circle">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <span class="step-label">Parents</span>
+                </a>
             </div>
             <div class="step-connector completed"></div>
             <div class="step completed">
-                <div class="step-circle">
-                    <i class="fas fa-check"></i>
-                </div>
-                <span class="step-label">Médical</span>
+                <a href="{{ route('inscription.step4') }}" class="step-link" data-step="4">
+                    <div class="step-circle">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <span class="step-label">Médical</span>
+                </a>
             </div>
             <div class="step-connector completed"></div>
             <div class="step completed">
-                <div class="step-circle">
-                    <i class="fas fa-check"></i>
-                </div>
-                <span class="step-label">Fournitures</span>
+                <a href="{{ route('inscription.step5') }}" class="step-link" data-step="5">
+                    <div class="step-circle">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <span class="step-label">Fournitures</span>
+                </a>
             </div>
             <div class="step-connector completed"></div>
             <div class="step completed">
-                <div class="step-circle">
-                    <i class="fas fa-check"></i>
-                </div>
-                <span class="step-label">Récapitulatif</span>
+                <a href="{{ route('inscription.step6') }}" class="step-link" data-step="6">
+                    <div class="step-circle">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <span class="step-label">Récapitulatif</span>
+                </a>
             </div>
             <div class="step-connector completed"></div>
             <div class="step active">
@@ -438,6 +450,32 @@
 .btn-secondary:hover {
     background: #E2E8F0;
     transform: translateY(-1px);
+}
+
+.step-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    padding: 8px;
+    margin: -8px;
+}
+
+.step-link:hover {
+    background: rgba(0, 60, 113, 0.05);
+    transform: translateY(-2px);
+}
+
+.step-link:hover .step-circle {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 60, 113, 0.2);
+}
+
+.step-link:hover .step-label {
+    color: #003C71;
 }
 
 @media (max-width: 768px) {
